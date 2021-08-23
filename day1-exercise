@@ -1,0 +1,15 @@
+make sure you on root
+yum module install container-tools -y
+podman info
+podman version
+podman images
+podman pull quay.io/kushalsamota/centos
+podman images
+podman pull docker.io/mysql
+podman images
+podman pull docker.io/mysql:5.6
+podman image
+note ---- if docker pull limit error you face move to next command.
+podman pull quay.io/kushalsamota/httpd
+podman inspect quay.io/kushalsamota/httpd ============ see the cmd and all other things
+podman inspect quay.io/kushalsamota/centos ============ see the cmd and all other things
