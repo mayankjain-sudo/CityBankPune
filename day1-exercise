@@ -63,4 +63,17 @@ podman exec -it centoscontainer hostname
 podman exec -it centoscontainer cat /etc/redhat-release
 podman exec -it centoscontainer cat /etc/passwd
 podman rm -f centoscontainer apachecontainer
-podman run -d
+podman run -d --name mysqlcontainer -e MYSQL_ROOT_PASSWORD=redhat mysql:5.6
+podman ps
+podman exec -it mysqlcontainer bash
+mysql -u root -p ==== give redhat as password on prompt
+show database;
+exit
+exit
+podman ps
+podman rm -f mysqlcontainer
+
+podman run -d --name tomcatcontainer tomcat:9.0
+podman inspect tomcatcontainer ==== see all info about container
+podman rm -f tomcatcontainer
+
