@@ -73,7 +73,7 @@ exit
 podman ps
 podman rm -f mysqlcontainer
 
-podman run -d --name tomcatcontainer tomcat:9.0
+podman run -d --name tomcatcontainer docker.io/tomcat:9.0
 podman inspect tomcatcontainer ==== see all info about container
 podman rm -f tomcatcontainer
 podman rm -f $(podman ps -a -q)  == this will remove all the container forcefully
