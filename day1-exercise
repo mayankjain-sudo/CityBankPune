@@ -19,7 +19,7 @@ podman login docker.io
 #give docker.io username and password and you will see a login succeeded message.
 podman images
 podman tag <image id of centos>  docker.io/<yourdockerusername>/javagpg:v1
-podman push docker.io/<yourdockerusername>/javagpg
+podman push docker.io/<yourdockerusername>/javagpg:v1
 #go to docker.io and confirm whether the image has been uploaded or not.
 
 podman rmi <imageid of centos image>
