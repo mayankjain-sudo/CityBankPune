@@ -76,4 +76,10 @@ podman rm -f mysqlcontainer
 podman run -d --name tomcatcontainer tomcat:9.0
 podman inspect tomcatcontainer ==== see all info about container
 podman rm -f tomcatcontainer
+podman rm -f $(podman ps -a -q)  == this will remove all the container forcefully
+podman system df
+podman ps
+podman run --help | grep cpu   === you can limit cpu
+podman run --help | grep memory === you can limit memory
+
 
