@@ -89,6 +89,9 @@ podman cp /index.html centoscontainer:/
 podman exec -it centoscontainer ls /
 podman cp centoscontainer:/etc/passwd  /
 ls /
-
+podman rm -f centoscontainer
+podman run -d --name apachecontainer httpd
+podman logs apachecontainer
+podman rm -f apachecontainer
 done...!
 
