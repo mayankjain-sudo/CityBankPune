@@ -67,7 +67,7 @@ podman run -d --name mysqlcontainer -e MYSQL_ROOT_PASSWORD=redhat mysql:5.6
 podman ps
 podman exec -it mysqlcontainer bash
 mysql -u root -p ==== give redhat as password on prompt
-show database;
+show databases;
 exit
 exit
 podman ps
