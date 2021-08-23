@@ -38,6 +38,6 @@ podman images
 
 podman rmi $(podman images -a -q)
 podman images ==== if you still see some images than remove them with their name by using podman rmi <name of image>
-
+ls /etc/containers/storage/overlay  === this wil give you all the images in layer format. layer is a directory.
 done..!
 
