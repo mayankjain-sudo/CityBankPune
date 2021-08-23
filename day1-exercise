@@ -1,4 +1,4 @@
-make sure you on root
+#make sure you on root
 yum module install container-tools -y
 podman info
 podman version
@@ -9,7 +9,16 @@ podman pull docker.io/mysql
 podman images
 podman pull docker.io/mysql:5.6
 podman image
-note ---- if docker pull limit error you face move to next command.
+#note ---- if docker pull limit error you face move to next command.
 podman pull quay.io/kushalsamota/httpd
 podman inspect quay.io/kushalsamota/httpd ============ see the cmd and all other things
 podman inspect quay.io/kushalsamota/centos ============ see the cmd and all other things
+
+#task -- create a account on docker.io
+podman login docker.io
+#give docker.io username and password and you will see a login succeeded message.
+podman images
+podman tag <image id of centos>  docker.io/<yourdockerusername>/javagpg:v1
+podman push docker.io/<yourdockerusername>/javagpg
+#go to docker.io and confirm whether the image has been uploaded or not.
+
