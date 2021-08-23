@@ -55,10 +55,12 @@ podman rm centoscontainer
 podman ps
 podman run -itd --name centoscontainer quay.io/kushalsamota/centos
 podman ps
-podman run -itd --name apachecontainer quay.io/kushalsamota/httpd
+podman run -d --name apachecontainer quay.io/kushalsamota/httpd
 podman exec -it apachecontainer bash ==== to go in container
 exit
 podman ps
 podman exec -it centoscontainer hostname
-podman exec -it centoscontainer 
-podman 
+podman exec -it centoscontainer cat /etc/redhat-release
+podman exec -it centoscontainer cat /etc/passwd
+podman rm -f centoscontainer apachecontainer
+podman run -d
