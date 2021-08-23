@@ -82,4 +82,13 @@ podman ps
 podman run --help | grep cpu   === you can limit cpu
 podman run --help | grep memory === you can limit memory
 
+# copy the file inside container and from container
+podman run -itd --name centoscontainer centos
+touch /index.html
+podman cp /index.html centoscontainer:/
+podman exec -it centoscontainer ls /
+podman cp centoscontainer:/etc/passwd  /
+ls /
+
+done...!
 
