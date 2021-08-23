@@ -41,3 +41,24 @@ podman images ==== if you still see some images than remove them with their name
 ls /etc/containers/storage/overlay  === this wil give you all the images in layer format. layer is a directory.
 done..!
 
+
+##################################################################
+container exercise
+##################################################################
+
+podman run -itd --name centoscontainer quay.io/kushalsamota/centos
+podman ps
+podman ps -a
+podman rm centoscontainer
+podman stop centoscontainer
+podman rm centoscontainer
+podman ps
+podman run -itd --name centoscontainer quay.io/kushalsamota/centos
+podman ps
+podman run -itd --name apachecontainer quay.io/kushalsamota/httpd
+podman exec -it apachecontainer bash ==== to go in container
+exit
+podman ps
+podman exec -it centoscontainer hostname
+podman exec -it centoscontainer 
+podman 
