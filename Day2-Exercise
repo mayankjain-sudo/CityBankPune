@@ -13,4 +13,11 @@ podman exec -it centos1 bash
 ping <ip of centos2>
 exit
 podman rm -f centos1 centos2
+podman rm -f apache
+
+podman run -d --name nginx -p 82:80 quay.io/kushalsamota/nginx
+netstat -tulpn | grep -i listen ===== and see which process is listening on 82 port number. you will also see the pid of process listening on 80. like 19742/80
+ps -ef | grep pidofprocess
+curl localhost:82
+podman rm -f nginx
 
