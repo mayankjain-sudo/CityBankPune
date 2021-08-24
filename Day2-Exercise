@@ -1,0 +1,4 @@
+podman ps
+podman run -d --name apache -p 80:80 quay.io/kushalsamota/httpd
+podman ps
+curl localhost:80
