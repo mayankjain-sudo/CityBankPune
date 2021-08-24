@@ -21,3 +21,7 @@ ps -ef | grep pidofprocess
 curl localhost:82
 podman rm -f nginx
 
+podman run -d -p 80:80 --name apache1 quay.io/kushalsamota/httpd
+podman run -d -p 82:80 --name apache2 quay.io/kushalsamota/httpd
+podman port -l === to see all port mappings.
+podman rm -f apache1 apache2
