@@ -2,3 +2,15 @@ podman ps
 podman run -d --name apache -p 80:80 quay.io/kushalsamota/httpd
 podman ps
 curl localhost:80
+
+podman network ls
+podman network inspect podman  === and see the range from which container are having the ip addresses
+podman run -itd --name centos1 quay.io/kushalsamota/centos
+podman run -itd --name centos2 quay.io/kushalsamota/centos
+podman inspect centos1 | grep -i ip
+podman inspect centos2 | grep -i ip
+podman exec -it centos1 bash
+ping <ip of centos2>
+exit
+podman rm -f centos1 centos2
+
