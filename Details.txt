@@ -1,0 +1,15 @@
+Imp Info
+jump server ip :- 3.109.27.116
+private ip and username is given in excel sheet.
+
+1) ssh <username>@3.109.27.116
+password is in chat of zoom
+2) ssh /home/<username>/key.pem ec2-user@<your private ip>
+3) sudo su -
+4) yum module install container-tools -y
+
+example :-
+1) ssh user1@3.109.27.116
+2) ssh /home/user1/key.pem ec2-user@172.31.4.162
+3) sudo su -
+4) yum module install container-tools -y
