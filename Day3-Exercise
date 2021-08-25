@@ -85,7 +85,7 @@ FROM         quay.io/kushalsamota/centos:latest
 MAINTAINER   kushalsamota kushalsamota@gmail.com
 LABEL        runinformation podman run -d imagename
 LABEL        info this is my testing image
-ENV          PORT 8080
+ENV          PORT 80
 EXPOSE       80
 RUN             yum install httpd -y
 WORKDIR         /var/www/html
