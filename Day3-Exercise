@@ -20,7 +20,6 @@ mkdir /apache2
 cd /apache2
 mkdir src
 echo hello > src/index.html
-cd /apache
 touch Dockerfile
 FROM         quay.io/kushalsamota/centos:latest
 MAINTAINER   kushalsamota kushalsamota@gmail.com
