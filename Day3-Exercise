@@ -73,7 +73,7 @@ save the file
 podman build -t apache:v1 .
 podman images
 podman inspect apache:v1 === see the label author cmd env and expose port
-podman
+podman ps
 podman run -d --name apachecontainer -p 80:80 apache:v1
 curl localhost
 podman rm -f apachecontainer
