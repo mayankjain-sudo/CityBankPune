@@ -48,3 +48,13 @@ echo hello >> /usr/local/apache2/htdocs/index.html
 exit
 podman rm -f apachecontainer
 podman rmi quay.io/kushalsamota/httpd
+
+#another way to create volume is#
+podman volume create mysqldata
+podman volume ls
+podman volume inspect mysqldata
+ls /var/lib/containers/storage/ === there will be a volumes folder go in that and verify mysqldata folder
+podman run -d --name mysql -e MYSQL_ROOT_PASSWORD=redhat -v mysqldata:/var/lib/mysql quay.io/kushalsamota/mysql
+podman ps
+podman rm -f mysql
+
