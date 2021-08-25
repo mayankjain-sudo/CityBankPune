@@ -4,6 +4,7 @@ cd /apache
 mkdir src
 echo hello > src/index.html
 touch Dockerfile
+vim Dockerfile
 FROM         quay.io/kushalsamota/centos:latest
 RUN             yum install httpd -y
 COPY           ./src      /var/www/html
@@ -22,6 +23,7 @@ cd /apache2
 mkdir src
 echo hello > src/index.html
 touch Dockerfile
+vim Dockerfile
 FROM         quay.io/kushalsamota/centos:latest
 MAINTAINER   kushalsamota kushalsamota@gmail.com
 LABEL        runinformation podman run -d imagename
@@ -56,6 +58,7 @@ cd /apache3
 mkdir src
 echo hello > src/index.html
 touch Dockerfile
+vim Dockerfile
 FROM         quay.io/kushalsamota/centos:latest
 MAINTAINER   kushalsamota kushalsamota@gmail.com
 LABEL        runinformation podman run -d imagename
@@ -81,6 +84,7 @@ cd /apache4
 mkdir src
 echo hello > src/index.html
 touch Dockerfile
+vim Dockerfile
 FROM         quay.io/kushalsamota/centos:latest
 MAINTAINER   kushalsamota kushalsamota@gmail.com
 LABEL        runinformation podman run -d imagename
