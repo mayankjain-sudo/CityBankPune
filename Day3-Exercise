@@ -28,7 +28,16 @@ CMD            ["/usr/sbin/httpd","-D","FOREGROUND"]
 
 save the file
 podman build -t apache:v1 .
+podman images
 podman run -d --name apachecontainer -p 80:80 apache:v1
+podman exec -it apachecontainer bash
+env === see the env mentioned or not
+exit
+podman rm -f apachecontainer
+podman run -d --name apachecontainer -e PORT=80 -p 80:80 apache:v1
+podman exec -it apachecontainer bash
+env === see the env mentioned or not
+exit
 curl localhost
 podman rm -f apachecontainer
 
