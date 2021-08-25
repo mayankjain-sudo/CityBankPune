@@ -25,3 +25,26 @@ podman run -d -p 80:80 --name apache1 quay.io/kushalsamota/httpd
 podman run -d -p 82:80 --name apache2 quay.io/kushalsamota/httpd
 podman port --all === to see all port mappings.
 podman rm -f apache1 apache2
+
+# volume exercise #
+podman rm -f $(podman ps -a -q)
+podman rmi $(podman images -a -q)
+if some images is there remove them
+mkdir /websitedata
+echo "<h1> It Works </h1>" > /websitedata/index.html
+cat /websitedata/index.html
+podman run -d --name apachecontainer -v /websitedata:/usr/local/apache2/htdocs:Z -p 80:80 quay.io/kushalsamota/httpd
+curl localhost
+podman exec -it apachecontainer bash
+echo hello >> /usr/local/apache2/htdocs/index.html
+#it will change because we have mounted in rw mode.#
+exit
+cat /websitedata/index.html  === see the change
+podman rm -f apachecontainer
+podman run -d --name apachecontainer -v /websitedata:/usr/local/apache2/htdocs:Z,ro -p 80:80 quay.io/kushalsamota/httpd
+podman exec -it apachecontainer bash
+echo hello >> /usr/local/apache2/htdocs/index.html
+#it will give error as we have mounted volume in ro mode.
+exit
+podman rm -f apachecontainer
+podman rmi quay.io/kushalsamota/httpd
