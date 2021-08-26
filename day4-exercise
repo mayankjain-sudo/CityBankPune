@@ -256,7 +256,7 @@ spec:
                                   name: mysqlpassword
                                   key: passwordofmysql
  
- oc create configmap mysqlpassword -from-literal=passwordofmysql=redhat
+ oc create configmap mysqlpassword --from-literal=passwordofmysql=redhat
  oc get configmap
  oc describe configmap mysqlpassword
  oc create -f dep.yaml
