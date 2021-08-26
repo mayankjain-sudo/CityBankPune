@@ -107,3 +107,159 @@ oc create -f pod.yaml
 oc get pods
 oc describe pod apachepod
 oc delete pod apachepod
+
+#########################################
+===================================
+vim rc.yaml
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: mysql
+  namespace: <username of yours>
+spec:
+  replicas: 5
+  selector:
+    app: mysql
+  template:
+    metadata:
+      name: mysqlpod
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysqlcontainer
+        image: quay.io/kushalsamota/mysql
+        env:
+                - name: MYSQL_ROOT_PASSWORD
+                  value: redhat
+                  
+save the file
+======================================
+oc create -f rc.yaml
+oc get all
+oc scale rc/mysql --replicas=10
+oc get pods
+oc scale rc/mysql --replicas=1
+oc get pods
+oc delete rc mysql
+oc get all
+
+###########################################
+oc project <username of yours>
+vim dep.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+  namespace: <username of yours>
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: quay.io/kushalsamota/nginx:1.14
+        ports:
+        - containerPort: 80
+        
+oc create -f dep.yaml
+oc get all
+oc set image deployment nginx-deployment nginx=quay.io/kushalsamota/nginx:1.14 --record
+oc rollout history deployment nginx-deployment
+oc get all
+oc set image deployment nginx-deployment nginx=quay.io/kushalsamota/nginx:1.15 --record
+oc rollout history deployment nginx-deployment
+oc get all
+oc set image deployment nginx-deployment nginx=quay.io/kushalsamota/nginx:1.16 --record
+oc rollout history deployment nginx-deployment
+
+oc get all
+oc set image deployment nginx-deployment nginx=quay.io/kushalsamota/nginx:1.17 --record
+oc rollout history deployment nginx-deployment
+oc get all
+oc rollout undo deployment nginx-deployment --to-revision=2
+oc rollout history deployment nginx-deployment
+
+oc delete deployment nginx-deployment
+
+
+
+###############################################
+
+secret practical
+vim dep.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  namespace: kushal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: quay.io/kushalsamota/mysql
+        env:
+                - name: MYSQL_ROOT_PASSWORD
+                  valueFrom:
+                          secretKeyRef:
+                                  name: mysqlpassword
+                                  key: passwordofmysql
+                                  
+oc create secret generic mysqlpassword --from-literal=passwordofmysql=redhat 
+oc create -f dep.yaml
+oc describe deployment mysql-deployment
+oc describe secret mysqlpassword
+oc delete deployment mysql-deployment
+oc delete secret mysqlpassword
+
+#####################################
+configmap
+vim dep.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  namespace: kushal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: quay.io/kushalsamota/mysql
+        env:
+                - name: MYSQL_ROOT_PASSWORD
+                  valueFrom:
+                          configMapKeyRef:
+                                  name: mysqlpassword
+                                  key: passwordofmysql
+ 
+ oc create configmap mysqlpassword -from-literal=passwordofmysql=redhat
+ oc get configmap
+ oc describe configmap mysqlpassword
+ oc create -f dep.yaml
+ oc describe deployment mysql-deployment
+ oc delete deployment mysql-deployment
+ oc delete configmap mysqlpassword
