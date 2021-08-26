@@ -74,7 +74,7 @@ oc get pods -o wide
 oc describe pod apachepod
 oc rsh apachepod
 exit
-oc exec -it apachepod -c secondcontainer
+oc exec -it apachepod -c secondcontainer bash
 exit
 oc logs apachepod -c firstcontainer
 oc logs apachepod -c secondcontainer
