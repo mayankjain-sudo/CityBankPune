@@ -12,7 +12,7 @@
   
   usernumber is your user1 or user2 accordingly...
   
-  oc new-project <username of yours>
+
 oc project <username of yours>
 vim pod.yaml
 ======================================
