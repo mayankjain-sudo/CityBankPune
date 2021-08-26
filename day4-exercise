@@ -200,7 +200,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql-deployment
-  namespace: kushal
+  namespace: <username of yours>
 spec:
   replicas: 1
   selector:
@@ -235,7 +235,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql-deployment
-  namespace: kushal
+  namespace: <username of yours>
 spec:
   replicas: 1
   selector:
