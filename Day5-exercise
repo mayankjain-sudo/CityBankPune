@@ -5,6 +5,8 @@ oc project <username of yours>
  oc get svc
  oc expose service <nameofservice>
  oc get route
+ oc describe route <routename>
+ oc describe service <servicename>
  open route url in web browser..
  oc delete route routename
  oc delete deployment deploymentname
