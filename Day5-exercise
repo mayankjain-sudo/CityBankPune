@@ -1,0 +1,16 @@
+oc project <username of yours>
+ yum install git -y
+ oc new-app https://github.com/kushalsamota/Openshift_PHP.git
+ oc get all
+ oc get svc
+ oc expose service <nameofservice>
+ oc get route
+ open route url in web browser..
+ oc delete route routename
+ oc delete deployment deploymentname
+ oc delete service <nameofservicename>
+ oc delete is isname === is is image stream
+ oc get all === nothing should be present in project
+ 
+ 
+ 
