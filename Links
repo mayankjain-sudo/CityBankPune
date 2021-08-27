@@ -2,3 +2,8 @@ https://access.cdn.redhat.com/content/origin/files/sha256/48/48f955712454c32718d
 https://www.vmware.com/go/getworkstation-win
 https://linuxconfig.org/how-to-install-red-hat-linux-8-on-vmware-workstation#:~:text=First%20you%20have%20to%20download,select%20the%20second%20option%20%E2%80%93%20Custom%20.
 https://www.katacoda.com/courses/openshift/playgrounds/openshift45
+
+
+console url
+console-openshift-console.apps.ex288.openshiftlab.xyz
+
