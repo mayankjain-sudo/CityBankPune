@@ -81,7 +81,7 @@ spec:
   type: NodePort
   ports:
   - name: tcp-31081-5000
-    nodePort: 31081
+    nodePort: 31081 ==== write the port as 310<yourusernumber as 01 02 03 upto 32>
     port: 5000
     protocol: TCP
   selector:
