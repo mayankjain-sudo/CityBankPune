@@ -1,0 +1,16 @@
+step1
+login to jump server via mobaxterm application with your usernumber (user1,user2 as given in excel sheet)
+ip is 18.218.175.43
+
+open mobaxterm and click on session thn select ssh and give it and click ok. password is redhat
+
+step2
+you have to go to your private server and ip is given in excel and the username also.
+command is === 
+ssh -i /home/<username>/key.pem ec2-user@<your private ip>
+
+for example if you are user1 --- ssh -i /home/user1/key.pem ec2-user@privateip
+
+step3
+to go to root run
+sudo su - 
