@@ -1,5 +1,5 @@
 Imp Info
-jump server ip :- 35.182.75.199
+jump server ip :- 18.218.175.43
 private ip and username is given in excel sheet.
 
 1) ssh <username>@35.182.75.199
