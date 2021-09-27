@@ -1,4 +1,4 @@
-#make sure you on root
+#make sure you on root on your private server. go to jumpserver and than private server and run sudo su - to go to root
 yum module install container-tools -y
 podman info
 podman version
