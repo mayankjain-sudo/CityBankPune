@@ -14,7 +14,7 @@ podman pull quay.io/kushalsamota/httpd
 podman inspect quay.io/kushalsamota/httpd ============ see the cmd and all other things
 podman inspect quay.io/kushalsamota/centos ============ see the cmd and all other things
 
-#task -- create a account on docker.io
+#task -- create a account on docker.io and verify it with email sent to registered email address.
 podman login docker.io
 #give docker.io username and password and you will see a login succeeded message.
 podman images
