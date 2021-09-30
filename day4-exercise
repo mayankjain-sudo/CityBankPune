@@ -1,5 +1,5 @@
   #make sure that you are on your private server. go to jump server than go to private server and run sudo su -
-  yum install wget -y
+  yum install wget vim -y
   wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz
   ls
   tar -xvf openshift-client-linux.tar.gz
