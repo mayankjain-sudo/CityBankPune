@@ -9,7 +9,7 @@
   exec bash
   oc completion bash > /etc/bash_completion.d/oc
   exec bash
-  oc login -u <usernumber> -p <password> https://api.test.openshiftlab.xyz:6443
+  oc login -u <usernumber> -p redhat https://api.test.openshiftlab.xyz:6443
   oc new-project <usernumber>
   oc project
   
