@@ -1,4 +1,8 @@
   #make sure that you are on your Linux Server
+  How to go to linux server
+  ssh -p 225 root@your_ip_given_in_excel_sheet      and give password
+  
+  
   yum install wget vim -y
   wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz
   ls
