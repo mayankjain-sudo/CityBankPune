@@ -1,7 +1,7 @@
 podman ps
 podman run -d --name apache -p <port>:80 quay.io/kushalsamota/httpd
 podman ps
-curl localhost:80
+curl localhost:<port>
 podman rm -f apache
 
 podman network ls
