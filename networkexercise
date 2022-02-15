@@ -42,7 +42,7 @@ echo hello >> /usr/local/apache2/htdocs/index.html
 exit
 cat /home/<username>/websitedata/index.html  === see the change
 podman rm -f apachecontainer
-podman run -d --name apachecontainer -v /home/<username>/websitedata:/usr/local/apache2/htdocs:Z,ro -p 80:80 quay.io/kushalsamota/httpd
+podman run -d --name apachecontainer -v /home/<username>/websitedata:/usr/local/apache2/htdocs:Z,ro -p <port>:80 quay.io/kushalsamota/httpd
 podman exec -it apachecontainer bash
 echo hello >> /usr/local/apache2/htdocs/index.html
 #it will give error as we have mounted volume in ro mode.
