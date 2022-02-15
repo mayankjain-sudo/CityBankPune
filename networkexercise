@@ -26,3 +26,35 @@ podman rm -f nginx
 podman run -d -p <port>:80 --name apache1 quay.io/kushalsamota/httpd
 podman port --all === to see all port mappings.
 podman rm -f apache1
+
+#Volume exercise
+podman rm -f $(podman ps -a -q)
+podman rmi $(podman images -a -q)
+if some images is there remove them
+mkdir /home/<username>websitedata  ==== for example mkdir /home/user10/websitedata
+echo "<h1> It Works </h1>" > /home/<username>/websitedata/index.html
+cat /home/<username>/websitedata/index.html
+podman run -d --name apachecontainer -v /home/<username>/websitedata:/usr/local/apache2/htdocs:Z -p <port>:80 quay.io/kushalsamota/httpd
+curl localhost:<port>
+podman exec -it apachecontainer bash
+echo hello >> /usr/local/apache2/htdocs/index.html
+#it will change because we have mounted in rw mode.#
+exit
+cat /home/<username>websitedata/index.html  === see the change
+podman rm -f apachecontainer
+podman run -d --name apachecontainer -v /home/<username>/websitedata:/usr/local/apache2/htdocs:Z,ro -p 80:80 quay.io/kushalsamota/httpd
+podman exec -it apachecontainer bash
+echo hello >> /usr/local/apache2/htdocs/index.html
+#it will give error as we have mounted volume in ro mode.
+exit
+podman rm -f apachecontainer
+podman rmi quay.io/kushalsamota/httpd
+
+#another way to create volume is#
+podman volume create mysqldata
+podman volume ls
+podman volume inspect mysqldata
+ls /var/lib/containers/storage/ === there will be a volumes folder go in that and verify mysqldata folder
+podman run -d --name mysql -e MYSQL_ROOT_PASSWORD=redhat -v mysqldata:/var/lib/mysql quay.io/kushalsamota/mysql
+podman ps
+podman rm -f mysql
