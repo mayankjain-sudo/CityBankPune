@@ -13,7 +13,7 @@ CMD            ["/usr/sbin/httpd","-D","FOREGROUND"]
 save the file
 podman build -t apache:v1 .
 podman run -d --name apachecontainer -p <port>:80 apache:v1
-curl localhost
+curl localhost:<port>
 podman rm -f apachecontainer
 podman rmi apache:v1
 
@@ -47,7 +47,7 @@ podman run -d --name apachecontainer -e PORT=80 -p <port>:80 apache:v1
 podman exec -it apachecontainer bash
 env === see the env mentioned or not
 exit
-curl localhost
+curl localhost:<port>
 podman rm -f apachecontainer
 podman rmi apache:v1
 
@@ -75,7 +75,7 @@ podman images
 podman inspect apache:v1 === see the label author cmd env and expose port
 podman ps
 podman run -d --name apachecontainer -p <port>:80 apache:v1
-curl localhost
+curl localhost:<port>
 podman rm -f apachecontainer
 podman rmi apache:v1
 ##################################################
@@ -99,7 +99,7 @@ CMD            ["/usr/sbin/httpd","-D","FOREGROUND"]
 save the file
 podman build -t apache:v1 .
 podman run -d --name apachecontainer -p <port>:80 apache:v1
-curl localhost
+curl localhost:<port>
 podman rm -f apachecontainer
 podman rmi apache:v1
 ##################################################
