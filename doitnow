@@ -1,0 +1,13 @@
+sudo su -
+yum install wget vim -y
+ wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz
+  ls
+  tar -xvf openshift-client-linux.tar.gz
+  cp oc /usr/bin
+  chmod +x /usr/bin/oc
+  yum install bash-completion -y
+  exec bash
+  oc completion bash > /etc/bash_completion.d/oc
+  exec bash
+  logout
+  oc login -u <usernumber> -p redhat https://api.citibank.openshiftlab.xyz:6443
