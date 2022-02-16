@@ -5,7 +5,7 @@ mkdir src
 echo hello > src/index.html
 touch Dockerfile
 vim Dockerfile
-FROM         quay.io/kushalsamota/centos:centos7
+FROM         docker.io/centos:centos7
 RUN             yum install httpd -y
 COPY           ./src      /var/www/html
 CMD            ["/usr/sbin/httpd","-D","FOREGROUND"]
@@ -24,7 +24,7 @@ mkdir src
 echo hello > src/index.html
 touch Dockerfile
 vim Dockerfile
-FROM         quay.io/kushalsamota/centos:centos7
+FROM         docker.io/centos:centos7
 MAINTAINER   kushalsamota kushalsamota@gmail.com
 LABEL        runinformation podman run -d imagename
 LABEL        info this is my testing image
@@ -59,7 +59,7 @@ mkdir src
 echo hello > src/index.html
 touch Dockerfile
 vim Dockerfile
-FROM         quay.io/kushalsamota/centos:centos7
+FROM          docker.io/centos:centos7
 MAINTAINER   kushalsamota kushalsamota@gmail.com
 LABEL        runinformation podman run -d imagename
 LABEL        info this is my testing image
@@ -85,7 +85,7 @@ mkdir src
 echo hello > src/index.html
 touch Dockerfile
 vim Dockerfile
-FROM         quay.io/kushalsamota/centos:centos7
+FROM          docker.io/centos:centos7
 MAINTAINER   kushalsamota kushalsamota@gmail.com
 LABEL        runinformation podman run -d imagename
 LABEL        info this is my testing image
