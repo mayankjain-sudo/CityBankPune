@@ -1,4 +1,4 @@
-yum install vim -y
+sudo yum install vim -y
 mkdir apache
 cd apache
 mkdir src
