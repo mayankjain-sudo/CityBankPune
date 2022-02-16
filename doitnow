@@ -9,5 +9,5 @@ yum install wget vim -y
   exec bash
   oc completion bash > /etc/bash_completion.d/oc
   exec bash
-  logout
+  exit
   oc login -u <usernumber> -p redhat https://api.citibank.openshiftlab.xyz:6443
