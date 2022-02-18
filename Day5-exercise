@@ -1,6 +1,6 @@
 
 oc project <username of yours>
- yum install git -y
+ sudo yum install git -y
  oc new-app https://github.com/kushalsamota/Openshift_PHP.git
  oc get all
  oc get svc
